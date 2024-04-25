@@ -1,6 +1,7 @@
 import Movie from "@models/movie";
 import User from "@models/user"
 import { connectToDB } from "@utils/database";
+import { NextResponse } from "next/server";
 
 export const GET = async (request) => {
     try {

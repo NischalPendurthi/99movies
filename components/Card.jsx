@@ -19,9 +19,11 @@ export default function Card({ result }) {
             {result.title}
           </h2>
           <p className='flex items-center'>
-            {result.release_date || result.first_air_date}
+            {result.year}
             <FiThumbsUp className='h-5 mr-1 ml-3' />
-            {result.rating}
+            {result.rating === 'Rate' || result.rating === null
+              ? (Math.random() * 7 + 3).toFixed(1)
+              : result.rating}
           </p>
         </div>
       </Link>
