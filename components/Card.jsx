@@ -1,17 +1,30 @@
+"use client"
 import Image from 'next/image';
 import Link from 'next/link';
 import { FiThumbsUp } from 'react-icons/fi';
+import { useSession } from "next-auth/react";
+import { usePathname, useRouter } from "next/navigation";
+
 
 export default function Card({ result }) {
+  const { data: session } = useSession();
+
+  const router = useRouter();
+
+  const handleProfileClick = () => {
+
+    router.push(`/movie/${result._id}?id=${result.id}`)
+  };
   return (
     <div className='group cursor-pointer sm:hover:shadow-slate-400 sm:shadow-md rounded-lg sm:border sm:border-slate-400 sm:m-2 transition-shadow duration-200'>
-      <Link href={`/movie/${result.id}`}>
+      
         <Image
           src={result.img_link}
           alt='card'
           width={500}
           height={300}
           className='sm:rounded-t-lg group-hover:opacity-75 transition-opacity duration-300'
+          onClick={handleProfileClick}
         ></Image>
         <div className='p-2'>
           <p className='line-clamp-2 text-md'>{result.summary}</p>
@@ -25,8 +38,27 @@ export default function Card({ result }) {
               ? (Math.random() * 7 + 3).toFixed(1)
               : result.rating}
           </p>
+          {session?.user ?(
+        <div className='mt-5 flex-center gap-4 border-t border-gray-100 pt-3'>
+          <p
+            className='font-inter text-sm  cursor-pointer'
+            // onClick={handleEdit}
+          >
+            Rate it
+          </p>
+          <p
+            className='font-inter text-sm  cursor-pointer'
+            // onClick={handleDelete}
+          >
+            Add to Watchlist
+          </p>
         </div>
-      </Link>
+      ):(
+        <>
+        </>
+      )}
+        </div>
+      
     </div>
   );
 }
