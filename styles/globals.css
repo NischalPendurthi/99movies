@@ -77,3 +77,26 @@
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-libre_franklin), sans-serif;
 }
+.overlay-image {
+  position: absolute;
+  top: 50px; /* Adjust the top position as needed */
+  left: 170px; /* Adjust the left position as needed */
+  width: 200px; /* Adjust the width of the small image as needed */
+  height: auto; /* This will maintain the aspect ratio of the small image */
+}
+
+.video-container {
+  position: relative;  /* Enable absolute positioning for overlay */
+  width: 100%;  /* Adjust width and height as needed */
+  height: 400px;
+}
+
+
+.info-overlay {
+  position: absolute;
+  top: 10px;  /* Adjust position of info */
+  left: 10px;
+  color: white;  /* Adjust text color */
+  background-color: none;  /* Semi-transparent background */
+  padding: 10px;  /* Add padding for spacing */
+}

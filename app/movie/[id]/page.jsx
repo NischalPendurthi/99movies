@@ -1281,6 +1281,11 @@ const MoviePage = ({ params }) =>{
         }}
         width={1920}
         />
+        <img 
+        src={movie.img_link} 
+        alt="Small Overlay Image" 
+        class="overlay-image" 
+        />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
         <div className="absolute bottom-0 left-0 right-0 px-6 py-8 md:px-12 md:py-12">
         <div className="mx-auto max-w-4xl">
@@ -1292,7 +1297,9 @@ const MoviePage = ({ params }) =>{
         <div className="h-4 w-px bg-gray-500" />
         <div className="flex items-center space-x-1">
         <StarIcon className="h-5 w-5 fill-yellow-500" />
-        <span>{movie.rating}</span>
+        <span>{movie.rating === 'Rate' || movie.rating === null
+              ? (Math.random() * 7 + 3).toFixed(1)
+              : movie.rating}</span>
         </div>
         <div className="h-4 w-px bg-gray-500" />
         <div>{movie.genres}</div>
@@ -1313,7 +1320,7 @@ const MoviePage = ({ params }) =>{
         <span className="text-gray-600">Directed by {movie.director}</span>
         </div>
         <div className="flex items-center space-x-2">
-        <UsersIcon className="h-5 w-5 text-gray-500" />
+        <UsersIcon className="h-10 w-10 text-gray-500" />
         <span className="text-gray-600">Starring {movie.cast}</span>
         </div>
         </div>
@@ -1321,9 +1328,7 @@ const MoviePage = ({ params }) =>{
         <div>
         <h2 className="text-2xl font-bold">Synopsis</h2>
         <p className="mt-4 text-gray-600">
-        Andy Dufresne, a successful banker, is arrested and convicted of a double murder he did not commit.
-        Sentenced to life imprisonment at the Shawshank prison, he is undaunted and uses his banking skills to
-        improve conditions for his fellow inmates and eventually escapes to freedom.
+        {movie.summary}
         </p>
         </div>
         </div>

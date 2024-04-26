@@ -20,7 +20,7 @@ const RootLayout =  ({ children }) =>{
           <Provider>
             <Header />
             <Navbar />
-            <SearchBox />
+            {/* <SearchBox /> */}
             {children}
           </Provider>
         </body>
