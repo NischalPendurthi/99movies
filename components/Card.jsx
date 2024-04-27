@@ -15,6 +15,14 @@ export default function Card({ result }) {
 
     router.push(`/movie/${result._id}?id=${result.id}`)
   };
+  const habdleRate = () => {
+
+    router.push(`/movie/${result._id}?id=${result.id}`)
+  };
+  const habdleWatch= () => {
+
+    router.push(`/movie/${result._id}?id=${result.id}`)
+  };
   return (
     <div className='group cursor-pointer sm:hover:shadow-slate-400 sm:shadow-md rounded-lg sm:border sm:border-slate-400 sm:m-2 transition-shadow duration-200'>
       
@@ -43,13 +51,13 @@ export default function Card({ result }) {
         <div className='mt-5 flex-center gap-4 border-t border-gray-100 pt-3'>
           <p
             className='font-inter text-sm  cursor-pointer'
-            // onClick={handleEdit}
+            // onClick={handleRate}
           >
             Rate it
           </p>
           <p
             className='font-inter text-sm  cursor-pointer'
-            // onClick={handleDelete}
+            // onClick={handleWatch}
           >
             Add to Watchlist
           </p>

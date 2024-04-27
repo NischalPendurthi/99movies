@@ -1,10 +1,10 @@
 import { Schema,model,models } from "mongoose";
 
-const RatingSchema = new Schema({
+const ReviewSchema = new Schema({
     creater: {
         type:Schema.Types.ObjectId,
         ref: "User",
-        // required: [true, "User is required."]
+        required: [true, "User is required."]
     },
     rating: {
         type: Number,
@@ -13,9 +13,13 @@ const RatingSchema = new Schema({
     movie: {
         type: String,
         required: [true,"Movie name is required."],
-    }
+    },
+    review: {
+        type: String,
+        required: [true,"Movie name is required."],
+    },
 });
 
-const Rating = models.Rating || model("Rating", RatingSchema);
+const Review = models.Review || model("Review", ReviewSchema);
 
-export default  Rating;
+export default  Review;
