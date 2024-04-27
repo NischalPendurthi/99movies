@@ -1,8 +1,9 @@
-
+import Link from 'next/link';
 import Movie from "@models/movie";
 import { connectToDB } from "@utils/database";
 
 import Results from '@/components/Results';
+
 
 function findMaxIntersectionTitle(titles, query) {
   const queryChars = new Set(query.toLowerCase().split(''));
@@ -24,9 +25,9 @@ function findMaxIntersectionTitle(titles, query) {
 }
 
 export const GET = async (request) => {
-    console.log(request)
+    // console.log(request)
     const decodedrequest = decodeURIComponent(request)
-    console.log(decodedrequest)
+    // console.log(decodedrequest)
   try {
       await connectToDB()
       const query = { title: { $regex: new RegExp(decodedrequest, "i") } };
@@ -42,13 +43,17 @@ export const GET = async (request) => {
     const searchTerm = params.searchTerm;
     const decodedTerm = decodeURIComponent(searchTerm)
     const result = findMaxIntersectionTitle(titles, decodedTerm);
+    const resq = await GET(result)
   const res = await GET(searchTerm)
   const data =  await res.json();
+  const fata = await resq.json();
+  console.log(fata[0].id)
   
   return (
     <div>
     {data && data.length === 0 && (
-        <h1 className='text-center pt-6'>No such movies found,Do you mean {result}</h1>
+        <h1 className='text-center pt-6'>No such movies found,Do you mean <Link href={`/movie/${fata[0]._id}?id=${fata[0].id}`}>{result}</Link> </h1>
+        
       )}
       {data && data.length > 0 && <Results results={data} />}
     </div>

@@ -1265,8 +1265,8 @@ function UsersIcon(props) {
 const MoviePage = ({ params }) =>{
   const searchParams = useSearchParams()
   const id = searchParams.get("id")
-  console.log(id)
   const movie = movies.find((m) => m.id === parseInt(id))
+//   console.log(movie)
   return (
         <>
         <div className="relative h-[500px] overflow-hidden rounded-lg">
