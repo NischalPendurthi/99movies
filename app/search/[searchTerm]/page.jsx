@@ -2,13 +2,14 @@
 import Movie from "@models/movie";
 import { connectToDB } from "@utils/database";
 
-
 import Results from '@/components/Results';
 export const GET = async (request) => {
     console.log(request)
+    const decodedrequest = decodeURIComponent(request)
+    console.log(decodedrequest)
   try {
       await connectToDB()
-      const query = { title: { $regex: new RegExp(request, "i") } };
+      const query = { title: { $regex: new RegExp(decodedrequest, "i") } };
       const movies = await Movie.find(query)
       return new Response(JSON.stringify(movies), { status: 200 })
   } catch (error) {
@@ -23,10 +24,10 @@ export default async function SearchPage({ params }) {
   
   return (
     <div>
-    {data &&
-        data.length ===
-        <h1 className='text-center pt-6'>No data found</h1>}
-      {data && <Results results={data} />}
+    {data && data.length === 0 && (
+        <h1 className='text-center pt-6'>No such movies found</h1>
+      )}
+      {data && data.length > 0 && <Results results={data} />}
     </div>
   );
 }
