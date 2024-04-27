@@ -2,7 +2,7 @@ import { Schema,model,models } from "mongoose";
 
 const ReviewSchema = new Schema({
     creater: {
-        type:Schema.Types.ObjectId,
+        type: String,
         ref: "User",
         required: [true, "User is required."]
     },

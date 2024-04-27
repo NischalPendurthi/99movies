@@ -40,7 +40,7 @@ useEffect(()=>{
                 <div className="flex gap-3 md:gap-5">
                     
                     
-                    <Link href="/rate-movies"
+                    <Link href="/write-review/id"
                     className="text-2xl font-bold bg-amber-500 py-1 px-2 rounded-lg">
                         Rate Movies
                     </Link>

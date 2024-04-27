@@ -18,11 +18,10 @@ const CreateReview = () => {
     setIsSubmitting(true);
 
     try {
-      console.log(session?.user.id)
       const response = await fetch("http://localhost:3000/api/review", {
         method: "POST",
         body: JSON.stringify({
-          creater: session?.user.id,
+          creater: session?.user.name,
           rating: review.rating,
           movie: review.movie,
           review: review.review,
