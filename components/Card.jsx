@@ -23,8 +23,9 @@ export default function Card({ result }) {
           alt='card'
           width={500}
           height={300}
-          className='sm:rounded-t-lg group-hover:opacity-75 transition-opacity duration-300'
+          className='sm:rounded-t-lg group-hover:opacity-75  transition-opacity duration-300'
           onClick={handleProfileClick}
+          
         ></Image>
         <div className='p-2'>
           <p className='line-clamp-2 text-md'>{result.summary}</p>
@@ -35,7 +36,7 @@ export default function Card({ result }) {
             {result.year}
             <FiThumbsUp className='h-5 mr-1 ml-3' />
             {result.rating === 'Rate' || result.rating === null
-              ? (Math.random() * 7 + 3).toFixed(1)
+              ? (Math.random() * 1 + 3).toFixed(1)
               : result.rating}
           </p>
           {session?.user ?(
