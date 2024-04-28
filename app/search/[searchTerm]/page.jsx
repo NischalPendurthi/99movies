@@ -52,7 +52,7 @@ export const GET = async (request) => {
   return (
     <div>
     {data && data.length === 0 && (
-        <h1 className='text-center pt-6'>No such movies found,Do you mean <Link href={`/movie/${fata[0]._id}?id=${fata[0].id}`}>{result}</Link> </h1>
+        <h1 className='text-center pt-6'>No such movies found,Do you mean <Link href={`/movie/${fata[0].title}`}>{result}</Link> </h1>
         
       )}
       {data && data.length > 0 && <Results results={data} />}

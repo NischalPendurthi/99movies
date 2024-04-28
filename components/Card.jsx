@@ -17,7 +17,7 @@ export default function Card({ result }) {
   };
   const handleRate = () => {
 
-    router.push(`/wirte-movie/${result.title}`)
+    router.push(`/write-review/${result.title}`)
   };
   const handleWatch= () => {
 
@@ -43,9 +43,7 @@ export default function Card({ result }) {
           <p className='flex items-center'>
             {result.year}
             <FiThumbsUp className='h-5 mr-1 ml-3' />
-            {result.rating === 'Rate' || result.rating === null
-              ? (Math.random() * 1 + 3).toFixed(1)
-              : result.rating}
+            {result.rating }
           </p>
           {session?.user ?(
         <div className='mt-5 flex-center gap-4 border-t border-gray-100 pt-3'>

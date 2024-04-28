@@ -112,9 +112,10 @@ export const GET = async (request) => {
 }
   export default async function MoviePage({ params }) {
     const searchTerm = params.id;
+    const dname = decodeURIComponent(searchTerm)
     // console.log(searchTerm)
     const res = await GET(searchTerm)
-    const rev = await GETReview(searchTerm)
+    const rev = await GETReview(dname)
     const reviews =  await rev.json();
     
     const data =  await res.json();

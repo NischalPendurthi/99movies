@@ -19,6 +19,9 @@ const ReviewCard = ({ review }) => {
                 Movie: {review.movie}
               </p>
               <p className="text-lg tracking-tight text-slate-900">
+                Rating: {review.rating}
+              </p>
+              <p className="text-lg tracking-tight text-slate-900">
                 {review.review}
               </p>
             </blockquote>
