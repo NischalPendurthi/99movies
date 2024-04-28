@@ -166,7 +166,7 @@ export const GET = async (request) => {
         <StarIcon className="h-5 w-5 fill-yellow-500" />
         <span>{movie.rating === 'Rate' || movie.rating === null
               ? (Math.random() * 7 + 3).toFixed(1)
-              : movie.rating}</span>
+              : movie.rating} [IMDB]</span>
         </div>
         <div className="h-4 w-px bg-gray-500" />
         <div>{movie.genres}</div>
@@ -203,28 +203,18 @@ export const GET = async (request) => {
         <section id="testimonials" aria-label="What our customers are saying" class="bg-slate-50 py-20 sm:py-32">
   <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
     <div className="mx-auto max-w-2xl md:text-center">
-      <h2 className="font-display text-3xl tracking-tight text-slate-900 sm:text-4xl">What Our Customers Are Saying</h2>
+      <h2 className="font-display text-3xl tracking-tight text-slate-900 sm:text-4xl">What Our Users Are Saying</h2>
     </div>
-    <ul role="list"
-      className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-6 sm:gap-8 lg:mt-20 lg:max-w-none lg:grid-cols-3">
+    
       
-      {/* {review && review.length === 0 && (
-        <h1 className='text-center pt-6'>Users not reviewed this movie,Wanna review it <Link href={`/write-review/${movie.title}`}>Give a Review</Link> </h1>
-        
-      )}
-      {review && review.length > 0 && <ReviewCard
-      review={review}
-      users={users}
-      i="0"
-      />
-    } */}
+      
     {reviews.length === 0 ?(
       <h1 className='text-center pt-6'>Users not reviewed this movie,Wanna review it <Link href="/write-review/review">Give a Review</Link> </h1>
     ):(
-      <div>{renderReviews({reviews}, {user})}</div>
+      <div>{renderReviews({reviews})}</div>
     )}
       
-    </ul>
+    
   </div>
 </section>
         </>

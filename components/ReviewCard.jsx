@@ -2,8 +2,8 @@ import Image from 'next/image';
 
 const ReviewCard = ({ review }) => {
   return (
-    <li>
-      <ul role="list" className="flex flex-col gap-y-6 sm:gap-y-8">
+    <li className='list-style-type: none'>
+      <ul role="list" className="flex flex-col  gap-y-6 sm:gap-y-8">
         <li>
           <figure className="relative rounded-2xl bg-white p-6 shadow-xl shadow-slate-900/10">
             <svg

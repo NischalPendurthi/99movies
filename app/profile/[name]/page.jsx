@@ -81,8 +81,16 @@ export default async function Component({params}) {
       <h4 className="text-lg font-semibold">Reviews</h4>
       {reviews.length === 0 ?(
       <h1 className='text-center pt-6'>Users not reviewed this movie,Wanna review it <Link href="/write-review/review">Give a Review</Link> </h1>
-    ):(
-      <div>{renderReviews({reviews}, {user})}</div>
+    ):(<>
+      <div>{renderReviews()}</div>
+      <Link href="/suggestions" className='flex justify-center'>
+            <button className="flex bg-orange-500 hover:bg-orange-700 text-white text-lg text-center font-bold py-2 px-4 rounded">
+              Get Suggestions
+            </button>
+            </Link>
+            <br />
+            <br />
+      </>
     )}
       </>
     )
