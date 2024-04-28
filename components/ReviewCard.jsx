@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-const ReviewCard = ({ review, users, i }) => {
+const ReviewCard = ({ review }) => {
   return (
     <li>
       <ul role="list" className="flex flex-col gap-y-6 sm:gap-y-8">
@@ -16,16 +16,16 @@ const ReviewCard = ({ review, users, i }) => {
             </svg>
             <blockquote className="relative">
               <p className="text-lg tracking-tight text-slate-900">
-                Movie: {review[i].movie}
+                Movie: {review.movie}
               </p>
               <p className="text-lg tracking-tight text-slate-900">
-                {review[i].review}
+                {review.review}
               </p>
             </blockquote>
             <figcaption className="relative mt-6 flex items-center justify-between border-t border-slate-100 pt-6">
               <div>
                 <div className="font-display text-base text-slate-900">
-                  {review[i].creater}
+                  {review.creater}
                 </div>
               </div>
               <div className="overflow-hidden rounded-full bg-slate-50">
@@ -33,7 +33,7 @@ const ReviewCard = ({ review, users, i }) => {
                   alt=""
                   className="h-14 w-14 object-cover"
                   style={{ color: 'transparent' }}
-                  src={users[i].image}
+                  src={review.image}
                   width={56}
                   height={56}
                 />

@@ -115,15 +115,21 @@ export const GET = async (request) => {
     // console.log(searchTerm)
     const res = await GET(searchTerm)
     const rev = await GETReview(searchTerm)
-    const review =  await rev.json();
-    const creaters = await extractCreaters(review);
-    const rcreaters = [...creaters].reverse()
-    const user = await GETUserImage(creaters)
+    const reviews =  await rev.json();
     
-    const users = await user.json();
     const data =  await res.json();
     const movie = await data[0];
-    console.log(review)
+    console.log(reviews)
+    async function renderReviews() {
+      return reviews.map((review, index) => (
+        <ReviewCard
+          key={index}
+          review={review}
+          
+          i={index}
+        />
+      ));
+    }
     // console.log(rcreaters)
     // console.log(creaters)
 
@@ -212,14 +218,10 @@ export const GET = async (request) => {
       i="0"
       />
     } */}
-    {review.length === 0 ?(
-      <h1 className='text-center pt-6'>Users not reviewed this movie,Wanna review it <Link href={`/write-review/${movie.title}`}>Give a Review</Link> </h1>
+    {reviews.length === 0 ?(
+      <h1 className='text-center pt-6'>Users not reviewed this movie,Wanna review it <Link href="/write-review/review">Give a Review</Link> </h1>
     ):(
-      <ReviewCard
-      review={review}
-      users={users}
-      i="0"
-      />
+      <div>{renderReviews({reviews}, {user})}</div>
     )}
       
     </ul>

@@ -11,7 +11,7 @@ const CreateReview = () => {
   const { data: session } = useSession();
 
   const [submitting, setIsSubmitting] = useState(false);
-  const [review, setReview] = useState({ rating: "", movie: "",review: "" });
+  const [review, setReview] = useState({ rating: "", movie: "",review: "",image:"" });
 
   const createReview = async (e) => {
     e.preventDefault();
@@ -25,6 +25,7 @@ const CreateReview = () => {
           rating: review.rating,
           movie: review.movie,
           review: review.review,
+          image: session?.user.image
         }),
       });
 

@@ -18,6 +18,10 @@ const ReviewSchema = new Schema({
         type: String,
         required: [true,"Movie name is required."],
     },
+    image: {
+        type: String,
+        required: [true,"Movie name is required."],
+    },
 });
 
 const Review = models.Review || model("Review", ReviewSchema);

@@ -8,9 +8,15 @@ import { BsFillInfoCircleFill } from 'react-icons/bs';
 import DarkModeSwitch from './DarkModeSwitch';
 import {signIn,signOut,useSession,getProviders} from "next-auth/react"
 import {useState,useEffect} from "react"
+import { useRouter } from 'next/navigation';
 
 
 export default function Header() {
+  const router = useRouter()
+  const handleClick = () => {
+    signOut();
+    router.push('/');
+  };
     const { data: session} = useSession();
 // alert(session)
 const [providers,setProviders] = useState(null)
@@ -44,10 +50,10 @@ useEffect(()=>{
                     className="text-2xl font-bold bg-amber-500 py-1 px-2 rounded-lg">
                         Rate Movies
                     </Link>
-                    <button type="button" onClick={signOut} className="text-xl">
+                    <button type="button" onClick={handleClick} className="text-xl">
                         Sign Out
                     </button>
-                    <Link href="/profile" >
+                    <Link href={`/profile/${session?.user.name}`} >
                         <Image
                         src={session?.user.image}
                         width={37}
