@@ -3,7 +3,6 @@ import Movie from "@models/movie";
 import Review from "@models/review"
 import { connectToDB } from "@utils/database";
 import Results from '@/components/Results';
-import SuggestionCard from '@/components/SuggestionCard'
 
 export const GETReview = async (request) => {
     
@@ -109,7 +108,11 @@ export default async function SuggestionPage({ params }) {
   return (
     <div>
       <h4 className="text-lg font-semibold">Your Suggestions</h4>
-      <Results results={limitSuggestions}/>
+      {reviews && reviews.length === 0 && (
+        <h1 className='text-center pt-6'>You are not reviewed any movie,Please review some movies</h1>
+        
+      )}
+      {reviews && reviews.length > 0 && <Results results={limitSuggestions} />}
     </div>
   )
 }

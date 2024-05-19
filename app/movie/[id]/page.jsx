@@ -113,7 +113,6 @@ export const GET = async (request) => {
   export default async function MoviePage({ params }) {
     const searchTerm = params.id;
     const dname = decodeURIComponent(searchTerm)
-    // console.log(searchTerm)
     const res = await GET(searchTerm)
     const rev = await GETReview(dname)
     const reviews =  await rev.json();
@@ -131,8 +130,7 @@ export const GET = async (request) => {
         />
       ));
     }
-    // console.log(rcreaters)
-    // console.log(creaters)
+    
 
 
     return (
@@ -165,9 +163,7 @@ export const GET = async (request) => {
         <div className="h-4 w-px bg-gray-500" />
         <div className="flex items-center space-x-1">
         <StarIcon className="h-5 w-5 fill-yellow-500" />
-        <span>{movie.rating === 'Rate' || movie.rating === null
-              ? (Math.random() * 7 + 3).toFixed(1)
-              : movie.rating} [IMDB]</span>
+        <span>{movie.rating} [IMDB]</span>
         </div>
         <div className="h-4 w-px bg-gray-500" />
         <div>{movie.genres}</div>

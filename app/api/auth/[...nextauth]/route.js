@@ -20,7 +20,6 @@ const handler = NextAuth({
       return session;
     },
     async signIn({ account, profile, user, credentials }) {
-      // const { name, email,image } = profile;
       const username = profile.name
       
       const image = profile.picture
@@ -32,14 +31,7 @@ const handler = NextAuth({
         // check if user already exists
         const userExists = await User.findOne({ email: profile.email });
 
-        // if not, create a new document and save user in MongoDB
-        // if (!userExists) {
-        //   await User.create({
-        //     email: profile.email,
-        //     username: profile.name.replace(" ", "").toLowerCase(),
-        //     image: profile.picture,
-        //   });
-        // }
+        
         if (!userExists) {
           const res = await fetch("http://localhost:3000/api/user", {
             method: "POST",

@@ -14,6 +14,7 @@ const Feed = () => {
     try{
       const response = await fetch("http://localhost:3000/api/movies");
       const data = await response.json();
+      console.log(data)
       setAllMovies(data);
     }
     catch(error){
@@ -48,22 +49,7 @@ const Feed = () => {
       }, 500)
     );
   }
-  // const [SearchMovies, setSearchMovies] = useState([])
-  // const fetchSearchMovies = async () => {
-  //   try{
-  //           const response = await fetch("http://localhost:3000/api/movies/[id]");
-  //           const data = await response.json();
-  //           setSearchMovies(data);
-  //       }
-  //       catch(error){
-  //           console.log('Error fetching data:', error)
-  //       }
-    
-  //     };
-    
-  //     useEffect(() => {
-  //       fetchSearchMovies();
-  //     }, []);
+
   
   return (
     <section className='feed'>

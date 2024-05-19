@@ -2,7 +2,6 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-// import {signIn,signOut,useSession,getProviders} from "next-auth/react"
 import { connectToDB } from "@utils/database";
 import Review from '@models/review';
 import User from "@models/user";
@@ -35,7 +34,6 @@ export const GETUser= async (request) => {
 
 
 export default async function Component({params}) {
-    // const { data: session} = useSession();
     const name = params.name;
     const dname = decodeURIComponent(name)
     
@@ -58,9 +56,13 @@ export default async function Component({params}) {
     
     return (
         <>
-      <div key="1" className="mx-auto max-w-md space-y-6 p-4 md:p-6">
-        <div className="flex items-center gap-4">
-            <img
+      <h2 className='head_text text-left'>
+        <span className='blue_gradient'>Your Profile</span>
+      </h2>
+      <section className='w-full'>
+      
+      <p className='desc text-left'></p>
+      <img
               alt="Cody Nolan"
               className="rounded-full"
               height={64}
@@ -72,13 +74,10 @@ export default async function Component({params}) {
                 objectFit: "cover",
               }}
             />
-            <div className="grid gap-1">
                 <h3 className="text-lg font-semibold">{user[0].username}</h3>
                 <p className="text-sm text-gray-500 dark:text-gray-400">{user[0].email}</p>
-            </div>
-        </div>
-      </div>
-      <h4 className="text-lg font-semibold">Reviews</h4>
+      </section>
+      <h4 className="text-lg font-semibold"> Your Reviews</h4>
       {reviews.length === 0 ?(
       <h1 className='text-center pt-6'>Users not reviewed this movie,Wanna review it <Link href="/write-review/review">Give a Review</Link> </h1>
     ):(<>

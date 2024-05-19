@@ -16,15 +16,3 @@ export const GET = async (request) => {
     }
 } 
 
-// const searchTerm = 'Baahu';
-// const regex = new RegExp(`^${searchTerm}`, 'i'); // 'i' flag for case-insensitive search
-
-// // Using mongoose
-// MovieModel.find({ name: { $regex: regex } }, (err, movies) => {
-//   if (err) {
-//     // Handle error
-//   } else {
-//     // Use the fetched movies data
-//     console.log(movies);
-//   }
-// });
